@@ -3,10 +3,6 @@
 #include <iostream>
 using namespace std;
 
-void build_matrix(int d) {
-    vector<vector<int>> m = vector<vector<int>>(d);
-
-}
 
 class mymatrix {
 public:
@@ -33,13 +29,34 @@ public:
             cout << "\n";
         }
     }
+    
+    void show_pattern() {
+        for (int i = 0; i < size; i++) {
+            cout << "b_" << 6 - i << " = ";
+            for (int j = 0; j < size; j++) {
+                if (m[i][j] != 0) {
+                    if (m[i][j] != 1 || j == 6) {
+                        cout << m[i][j] << " ";
+                    }
+                    if (j != 6) {
+                        cout << "a_" << 6 - j;
+                       if (j != 0) {
+                           cout << " + ";
+                       }
+                    }                 
+                }   
+            }
+
+            cout << "\n";
+        }
+    }
 private:
     vector<vector<int>> m;
     int size = 0;
 };
 
 int main() {
-    mymatrix *m = new mymatrix(12);
-    m->show_matrix();
+    mymatrix *m = new mymatrix(6);
+    m->show_pattern();
     return 0;
 }
